@@ -62,7 +62,7 @@ public class CerealRunner
     
    public static double findNetCarbsPerCup(Cereal c)
    {
-      return (c.getCarbs() / c.getCups()) - c.getFiber();
+      return (c.getCarbs() / c.getCups()) - (c.getFiber() / c.getCups());
    }
   
 
@@ -140,7 +140,7 @@ public class CerealRunner
       c.getName().equals("Cocoa Puffs")) 
       { 
        System.out.println("\nCereal: " + c.getName() + ", NetCarbs: "    
-                           + findNetCarbs(c)); 
+                           + findNetCarbsPerCup(c)); 
       } 
       }
       /* Question 4 Answer
