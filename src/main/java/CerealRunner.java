@@ -60,9 +60,9 @@ public class CerealRunner
    *  @param: c - Cereal object
    */
     
-   public static double findNetCarbsPerCup(Cereal c)
+   public static double findNetCarbs(Cereal c)
    {
-      return (c.getCarbs() / c.getCups()) - (c.getFiber() / c.getCups());
+      return (c.getCarbs() - c.getFiber()) / c.getCups();
    }
   
 
