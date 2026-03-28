@@ -23,7 +23,14 @@ public class CerealRunner
    */
    public static  ArrayList<Cereal> filterCarbsPerCup(int min, int max)
    {
-      //Add your solution to Question 1 here.
+      ArrayList<Cereal> newList = new ArrayList<Cereal>();
+      for(int i = 0; i < cereals.size(); i++){
+         double carbsPerCup = cereals.get(i).getCarbs() / cereals.get(i).getCups();
+         if(carbsPerCup >= min && carbsPerCup <= max){
+            newList.add(cereals.get(i));
+         }
+      }
+      return newList;
    }
    
    /* Question 2: Write highestPercentFiber
@@ -34,7 +41,16 @@ public class CerealRunner
     
    public static Cereal highestPercentFiber()
    {
-      //Add your solution to Question 2 here.
+      double mostPercentFiber = (cereals.get(0).getFiber() / cereals.get(0).getCalories()) * 100;
+      int indexMostFiber = 0;
+      for(int i = 1; i < cereals.size(); i++){
+         double percentFiber = (cereals.get(i).getFiber() / cereals.get(i).getCalories()) * 100;
+         if(percentFiber > mostPercentFiber){
+            mostPercentFiber = percentFiber;
+            indexMostFiber = i;
+         }
+      }
+      return cereals.get(indexMostFiber);
    }
   
    
@@ -46,7 +62,7 @@ public class CerealRunner
     
    public static double findNetCarbsPerCup(Cereal c)
    {
-      //Add your solution to Question 3 here.
+      return (c.getCarbs() / c.getCups()) - c.getFiber();
    }
   
 
@@ -117,6 +133,21 @@ public class CerealRunner
       Cereal testCereal = new Cereal("Golden Crisp",100,0,11,0.88);
       System.out.println("Expected results: 11.0");
       System.out.println("Actual results:   " + findNetCarbsPerCup(testCereal));
+
+      for(Cereal c: cereals) { 
+      if(c.getName().equals("All-Bran with Extra Fiber") ||   
+      c.getName().equals("Apple Jacks") ||  
+      c.getName().equals("Cocoa Puffs")) 
+      { 
+       System.out.println("\nCereal: " + c.getName() + ", NetCarbs: "    
+                           + findNetCarbs(c)); 
+      } 
+      }
+      /* Question 4 Answer
+      The All-bran with extra fiber value is out of place because it is negative.
+       This is because it actually has fewer carbs than fiber. This is unrealistic
+       and may suggest that the data set is invalid and should be reevaluated.
+      */
       
    }
 }
