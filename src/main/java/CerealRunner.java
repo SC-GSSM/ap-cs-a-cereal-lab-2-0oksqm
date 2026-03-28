@@ -62,7 +62,7 @@ public class CerealRunner
     
    public static double findNetCarbs(Cereal c)
    {
-      return (c.getCarbs() - c.getFiber()) / c.getCups();
+      return (c.getCarbs() - c.getFiber());
    }
   
 
@@ -132,7 +132,7 @@ public class CerealRunner
       System.out.println("\n*****Find Net Carbs Results*****");
       Cereal testCereal = new Cereal("Golden Crisp",100,0,11,0.88);
       System.out.println("Expected results: 11.0");
-      System.out.println("Actual results:   " + findNetCarbsPerCup(testCereal));
+      System.out.println("Actual results:   " + findNetCarbs(testCereal));
 
       for(Cereal c: cereals) { 
       if(c.getName().equals("All-Bran with Extra Fiber") ||   
