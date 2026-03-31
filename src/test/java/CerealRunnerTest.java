@@ -1,3 +1,6 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -81,7 +84,7 @@ public class CerealRunnerTest
                 "question 4 should check Cocoa Puffs");
 
         assertTrue(
-            source.toLowerCase().contains("/* Question 4 Answer"),
+            source.toLowerCase().contains("/* question 4 answer"),
             "question 4 should include a written comment in CerealRunner.java");
     }
 }
